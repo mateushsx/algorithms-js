@@ -15,8 +15,7 @@ algorithms-js/
 │   ├── recursion/    # Algoritmos recursivos
 │   └── others/       # Outros algoritmos
 │
-├── README.md         # Documentação do repositório
-└── CONTRIBUTING.md   # Como contribuir para o projeto
+└── README.md         # Documentação do repositório
 ```
 
 ## 📜 Como funciona?
