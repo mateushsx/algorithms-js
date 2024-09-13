@@ -6,6 +6,7 @@ Se você gosta de resolver problemas e aprimorar suas habilidades em JavaScript,
 
 ## 📁 Estrutura do Projeto
 
+```textplain
 algorithms-js/
 │
 ├── algorithms/       # Onde os algoritmos estarão organizados
@@ -16,6 +17,7 @@ algorithms-js/
 │
 ├── README.md         # Documentação do repositório
 └── CONTRIBUTING.md   # Como contribuir para o projeto
+```
 
 ## 📜 Como funciona?
 
