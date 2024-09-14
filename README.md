@@ -8,14 +8,39 @@ Se você gosta de resolver problemas e aprimorar suas habilidades em JavaScript,
 
 ```textplain
 algorithms-js/
-│
-├── algorithms/       # Onde os algoritmos estarão organizados
-│   ├── sorting/      # Algoritmos de ordenação
-│   ├── searching/    # Algoritmos de busca
-│   ├── recursion/    # Algoritmos recursivos
-│   └── others/       # Outros algoritmos
-│
-└── README.md         # Documentação do repositório
+├── algorithms/
+│   ├── sorting/
+│   │   ├── [algoritmo]/
+│   │   │   ├── index.js
+│   │   │   └── README.md
+│   │   ├── [algoritmo]/
+│   │   │   ├── index.js
+│   │   │   └── README.md
+│   │   └── ...
+│   ├── searching/
+│   │   ├── [algoritmo]/
+│   │   │   ├── index.js
+│   │   │   └── README.md
+│   │   ├── [algoritmo]/
+│   │   │   ├── index.js
+│   │   │   └── README.md
+│   │   └── ...
+│   ├── graph/
+│   │   ├── [algoritmo]/
+│   │   │   ├── index.js
+│   │   │   └── README.md
+│   │   ├── [algoritmo]/
+│   │   │   ├── index.js
+│   │   │   └── README.md
+│   │   └── ...
+│   └── ...
+├── utils/
+│   └── ...
+├── tests/
+│   └── ...
+├── package.lock.json
+├── package.json
+└── README.md
 ```
 
 ## 📜 Como funciona?
