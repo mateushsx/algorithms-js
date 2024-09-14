@@ -48,6 +48,22 @@ algorithms-js/
 
 Cada algoritmo estará em uma pasta específica, de acordo com sua categoria, para facilitar o entendimento e a organização. Além disso, você pode ver a explicação do funcionamento de cada algoritmo nos comentários do código ou em arquivos de documentação que acompanham o código.
 
+## 🔍 O que é Big O Notation?
+
+Big O Notation é uma maneira de descrever a eficiência de um algoritmo, principalmente no que diz respeito ao tempo de execução ou uso de memória, à medida que o tamanho da entrada (n) aumenta. Ela ajuda a entender como um algoritmo escala e como se comporta em diferentes cenários.
+
+Aqui estão alguns dos termos comuns usados em Big O:
+
+- **O(1)** - Tempo constante: O tempo de execução não depende do tamanho da entrada.
+- **O(log n)** - Logaritmo: O tempo de execução cresce lentamente à medida que o tamanho da entrada aumenta.
+- **O(n)** - Linear: O tempo de execução cresce proporcionalmente ao tamanho da entrada.
+- **O(n log n)** - Log-linear: Comum em algoritmos de ordenação eficientes como Merge Sort e Quick Sort.
+- **O(n^2)** - Quadrático: O tempo de execução aumenta exponencialmente com o aumento da entrada. Exemplo: Bubble Sort.
+- **O(2^n)** - Exponencial: O tempo de execução dobra com cada aumento da entrada. Exemplo: Algoritmos de recursão complexa.
+- **O(n!)** - Fatorial: Usado em problemas de permutação. Extremamente ineficiente para grandes entradas.
+
+A notação Big O nos permite comparar a eficiência de diferentes algoritmos de forma independente do hardware ou da implementação específica.
+
 ## 🛠️ Tecnologias
 
 - JavaScript 🟨
