@@ -37,8 +37,17 @@ algorithms-js/
 ├── utils/
 │   └── ...
 ├── tests/
+│   ├── algorithms/
+│   │   ├── sorting/
+│   │   │   ├── [algoritmo].test.js
+│   │   │   └── ...
+│   │   ├── searching/
+│   │   │   ├── [algoritmo].test.js
+│   │   │   └── ...
+│   │   └── ...
 │   └── ...
 ├── package.lock.json
+├── jest.config.js
 ├── package.json
 └── README.md
 ```
