@@ -25,16 +25,6 @@ algorithms-js/
 │   │   │   ├── index.js
 │   │   │   └── README.md
 │   │   └── ...
-│   ├── graph/
-│   │   ├── [algoritmo]/
-│   │   │   ├── index.js
-│   │   │   └── README.md
-│   │   ├── [algoritmo]/
-│   │   │   ├── index.js
-│   │   │   └── README.md
-│   │   └── ...
-│   └── ...
-├── utils/
 │   └── ...
 ├── tests/
 │   ├── algorithms/
@@ -46,8 +36,10 @@ algorithms-js/
 │   │   │   └── ...
 │   │   └── ...
 │   └── ...
-├── package.lock.json
+├── .gitignore
 ├── jest.config.js
+├── LICENSE
+├── package.lock.json
 ├── package.json
 └── README.md
 ```
