@@ -1,0 +1,20 @@
+{
+  "name": "algorithms-js",
+  "version": "1.0.0",
+  "description": "> Um repositório dedicado aos algoritmos que eu estudei! 🚀",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mateushsx/algorithms-js.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mateushsx/algorithms-js/issues"
+  },
+  "homepage": "https://github.com/mateushsx/algorithms-js#readme"
+}
