@@ -4,7 +4,10 @@
   "description": "> Um repositório dedicado aos algoritmos que eu estudei! 🚀",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "test:ci": "jest --ci"
   },
   "repository": {
     "type": "git",
