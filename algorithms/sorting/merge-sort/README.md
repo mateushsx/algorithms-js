@@ -12,65 +12,64 @@ O código a seguir implementa o Merge Sort em JavaScript:
 
 ```javascript
 const list = [2, 8, 3, 1, 5, 6, 7, 9, 10, 11, 15, 13, 12, 14];
-
 const startTime = Date.now();
 
-function intercala(indiceEsquerdo, indiceMeio, indiceDireito, array) {
-  const n1 = indiceMeio - indiceEsquerdo + 1;
-  const n2 = indiceDireito - indiceMeio;
-  const L = [];
-  const R = [];
+function merge(leftIndex, middleIndex, rightIndex, array) {
+  const leftSize = middleIndex - leftIndex + 1;
+  const rightSize = rightIndex - middleIndex;
+  
+  const leftArray = new Array(leftSize);
+  const rightArray = new Array(rightSize);
 
-  // Preenchendo os vetores auxiliares
-  for (let i = 0; i < n1; i++) {
-    L[i] = array[indiceEsquerdo + i];
+  for (let i = 0; i < leftSize; i++) {
+    leftArray[i] = array[leftIndex + i];
   }
-  for (let j = 0; j < n2; j++) {
-    R[j] = array[indiceMeio + 1 + j];
+  
+  for (let j = 0; j < rightSize; j++) {
+    rightArray[j] = array[middleIndex + 1 + j];
   }
 
-  let i = 0,
-    j = 0,
-    k = indiceEsquerdo;
-
-  // Intercalação das sublistas
-  while (i < n1 && j < n2) {
-    if (L[i] <= R[j]) {
-      array[k] = L[i];
+  let i = 0
+  let j = 0
+  let k = leftIndex;
+  
+  while (i < leftSize && j < rightSize) {
+    if (leftArray[i] <= rightArray[j]) {
+      array[k] = leftArray[i];
       i++;
     } else {
-      array[k] = R[j];
+      array[k] = rightArray[j];
       j++;
     }
     k++;
   }
 
-  // Copiando os elementos restantes
-  while (i < n1) {
-    array[k] = L[i];
+  while (i < leftSize) {
+    array[k] = leftArray[i];
     i++;
     k++;
   }
-  while (j < n2) {
-    array[k] = R[j];
+
+  while (j < rightSize) {
+    array[k] = rightArray[j];
     j++;
     k++;
   }
 }
 
-function mergeSort(inicio, fim, array) {
-  if (inicio < fim) {
-    const meio = Math.floor((inicio + fim) / 2);
+function mergeSort(start, end, array) {
+  if (start < end) {
+    const middle = Math.floor((start + end) / 2);
 
-    mergeSort(inicio, meio, array);
-    mergeSort(meio + 1, fim, array);
-    intercala(inicio, meio, fim, array);
+    mergeSort(start, middle, array);
+    mergeSort(middle + 1, end, array);
+    merge(start, middle, end, array);
   }
   return array;
 }
 
-console.log("Lista desordenada:", list);
-console.log("Lista ordenada:", mergeSort(0, list.length - 1, list));
+console.log("Unsorted list:", list);
+console.log("Sorted list:", mergeSort(0, list.length - 1, list));
 console.log(`Tempo de execução: ${Date.now() - startTime}ms`);
 ```
 
