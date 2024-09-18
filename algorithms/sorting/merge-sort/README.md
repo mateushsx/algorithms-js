@@ -73,12 +73,19 @@ console.log("Sorted list:", mergeSort(0, list.length - 1, list));
 console.log(`Tempo de execução: ${Date.now() - startTime}ms`);
 ```
 
-### Explicação do código
+### Explicação do Código
 
-- **Array de entrada**: O array `list` contém uma sequência de números inteiros desordenados.
-- **Função `mergeSort`**: Essa função implementa o algoritmo de Merge Sort. Ela divide o array em duas partes recursivamente até que os subarrays contenham um único elemento. Em seguida, a função `intercala` é chamada para combinar as sublistas de forma ordenada.
-- **Função (`intercala`)**: Esta função realiza a fusão das duas metades já divididas, comparando os elementos e colocando-os na ordem correta em um array resultante.
-- **Saída**: O algoritmo retorna a lista ordenada, e o tempo de execução é exibido no console.
+1. **Array de entrada (`list`)**: O array `list` contém uma sequência de números inteiros desordenados que serão processados pelo algoritmo de Merge Sort para serem organizados em ordem crescente.
+
+2. **Função `mergeSort`**: Esta função implementa o algoritmo de **Merge Sort**, que é um algoritmo de ordenação baseado no paradigma de divisão e conquista. A função divide recursivamente o array em duas partes até que cada subarray contenha apenas um único elemento. Após isso, a função `merge` é utilizada para combinar as sublistas e garantir que os elementos sejam ordenados.
+
+3. **Função `merge`**: A função `merge` tem a responsabilidade de intercalar e combinar duas metades de um array. Ela faz isso criando dois arrays auxiliares (`leftArray` e `rightArray`) que armazenam as duas metades a serem combinadas. Em seguida, os elementos de ambos os arrays são comparados, e o menor valor é inserido de volta no array principal. Após a comparação de todos os elementos, qualquer valor restante nos arrays auxiliares é copiado para o array principal, garantindo que a fusão seja feita corretamente.
+
+4. **Processo de Ordenação**:
+    - **Divisão Recursiva**: O array é dividido recursivamente ao meio até que seja impossível dividir mais (ou seja, até que cada subarray tenha apenas um elemento).
+    - **Intercalação Ordenada**: As sublistas são gradualmente combinadas na função `merge`, garantindo que os elementos sejam colocados na ordem correta.
+
+5. **Saída**: O algoritmo retorna o array original agora ordenado. O console exibe a lista original (desordenada) e a lista final (ordenada).
 
 ### Complexidade de Tempo
 
