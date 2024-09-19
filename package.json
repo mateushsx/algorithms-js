@@ -20,6 +20,8 @@
   },
   "homepage": "https://github.com/mateushsx/algorithms-js#readme",
   "devDependencies": {
+    "@commitlint/cli": "^19.5.0",
+    "@commitlint/config-conventional": "^19.5.0",
     "@types/jest": "^29.5.13",
     "husky": "^9.1.6",
     "jest": "^29.7.0"
