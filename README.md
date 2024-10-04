@@ -1,3 +1,4 @@
+![Banner Algorithms](./assets/images/algorithms.png)
 # 🧠 algorithms-js
 
 > Um repositório dedicado aos algoritmos que eu estudei! 🚀
