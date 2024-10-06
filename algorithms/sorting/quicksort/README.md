@@ -11,19 +11,19 @@ O Quick Sort escolhe um elemento como **pivô** e particiona o array em dois sub
 O código a seguir implementa o Quick Sort em JavaScript:
 
 ```js
-function quicksort(arr) {
-  if (arr.length < 2) return arr;
+function quicksort(array) {
+  if (array.length < 2) return array;
 
-  const pivot = arr[Math.floor(arr.length / 2)];
+  const pivot = array[Math.floor(array.length / 2)];
   const smallerThanPivot = [];
   const greaterThanPivot = [];
 
-  for (let i = 0; i < arr.length; i++) {
-    if (i === Math.floor(arr.length / 2)) continue;
-    if (arr[i] <= pivot) {
-      smallerThanPivot.push(arr[i]);
+  for (let i = 0; i < array.length; i++) {
+    if (i === Math.floor(array.length / 2)) continue;
+    if (array[i] <= pivot) {
+      smallerThanPivot.push(array[i]);
     } else {
-      greaterThanPivot.push(arr[i]);
+      greaterThanPivot.push(array[i]);
     }
   }
 
