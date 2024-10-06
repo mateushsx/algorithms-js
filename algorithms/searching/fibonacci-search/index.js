@@ -1,43 +1,56 @@
-function fibonacciSearch(arr, x) {
-    let arrSize =  arr.length;
+function fibonacciSearch(array, searchValue) {
+    let arraySize =  array.length;
 
-    let fibbM2 = 0;
-    let fibbM1 = 1;
-    let fibM = fibbM1 + fibbM2;
+    let fibTwoBack = 0;
+    let fibOneBack = 1;
+    let fibCurrent = fibOneBack + fibTwoBack;
 
-    while(fibM < arrSize) {
-        fibbM2 = fibbM1;
-        fibbM1 =  fibM;
-        fibM = fibbM2 + fibbM1;
+    while(fibCurrent < arraySize) {
+        fibTwoBack = fibOneBack;
+        fibOneBack =  fibCurrent;
+        fibCurrent = fibTwoBack + fibOneBack;
     };
 
-    let offset = -1;
+    let INITIAL_OFFSET = -1;
+    let currentOffset = INITIAL_OFFSET;
 
-    while(fibM > 1) {
-        let i = Math.min(offset + fibbM2, arrSize - 1);
+    while(fibCurrent > 1) {
+        let i = Math.min(currentOffset + fibTwoBack, arraySize - 1);
 
-        if(arr[i] < x) {
-            fibM = fibbM1;
-            fibbM1 = fibbM2;
-            fibbM2 = fibM - fibbM1;
-            offset = i;
-        } else if(arr[i] > x) {
-            fibM = fibbM2;
-            fibbM1 = fibbM1 - fibbM2;
-            fibbM2 = fibM - fibbM1;
+        if(array[i] < searchValue) {
+            [fibTwoBack, fibOneBack, fibCurrent] = updateFibonacciValues(fibTwoBack, fibOneBack, true);
+            currentOffset = i;
+        } else if(array[i] > searchValue) {
+            [fibTwoBack, fibOneBack, fibCurrent] = updateFibonacciValues(fibTwoBack, fibOneBack, false);
         } else { 
             return i;
         }
-
-        if(fibbM1 && arr[offset + 1] === x) {
-            return offset + 1;
+        if (checkNextElement(fibOneBack, array, currentOffset, searchValue)) {
+            return currentOffset + 1;
         }
-
     }
     return -1;
 }
 
+function updateFibonacciValues(fibTwoBack, fibOneBack, moveForward = true) {
+    let fibCurrent;
+    if(moveForward) {
+        fibCurrent = fibOneBack;
+        fibOneBack = fibTwoBack;
+        fibTwoBack = fibCurrent - fibOneBack;
+    } else {
+        fibCurrent = fibTwoBack;
+        fibOneBack = fibOneBack - fibTwoBack;
+        fibTwoBack = fibCurrent - fibOneBack
+    }
+    return [fibTwoBack, fibOneBack, fibCurrent];
+}
+
+function checkNextElement(fibOneBack, array, currentOffset, searchValue) {
+    return fibOneBack && array[currentOffset + 1] === searchValue;
+}
+
 let sortedArray = [3, 8, 15, 21, 28, 36, 42, 57, 64, 73, 81, 92, 103, 115, 129];
-const x = 103;
-const result = fibonacciSearch(sortedArray, x);
+const searchValue = 103;
+const result = fibonacciSearch(sortedArray, searchValue);
 console.log(result, sortedArray[result]);
