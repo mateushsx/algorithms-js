@@ -1,7 +1,9 @@
+
+/*
 const elements = [2, 8, 3, 1, 5, 6, 7, 9, 10, 11, 15, 13, 12, 14];
 const elementToFind = 11;
-
 const startTime = Date.now();
+*/
 
 function linearSeach(array, item) {
   if (!Array.isArray(array)) return -1;
@@ -15,7 +17,10 @@ function linearSeach(array, item) {
   return -1;
 }
 
-const elementFoud = linearSeach(elements, elementToFind);
+module.exports = linearSeach;
 
-console.log('Elemento:', elementFoud);
-console.log(`Tempo de execução: ${Date.now() - startTime}ms`);
+/*
+  const elementFoud = linearSeach(elements, elementToFind); 
+  console.log('Elemento:', elementFoud);
+  console.log(`Tempo de execução: ${Date.now() - startTime}ms`);
+*/
