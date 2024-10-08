@@ -1,9 +1,7 @@
+const elements = [1, 3, 5, 7, 9, 11, 13, 15, 17, 19];
+const elementToFind = 11;
 
-/* 
-  const elements = [1, 3, 5, 7, 9, 11, 13, 15, 17, 19];
-  const elementToFind = 11;
-  const startTime = Date.now(); 
-*/
+const startTime = Date.now(); 
 
 function binarySearch(array, item) {
   if (!Array.isArray(array)) return -1;
@@ -27,10 +25,9 @@ function binarySearch(array, item) {
   return -1;
 }
 
-module.exports = binarySearch;
+const elementFoud = binarySearch(elements, elementToFind);
 
-/*
-  const elementFoud = binarySearch(elements, elementToFind);
-  console.log('Indice do elemento:', elementFoud);
-  console.log(`Tempo de execução: ${Date.now() - startTime}ms`);
-*/
+console.log('Indice do elemento:', elementFoud);
+console.log(`Tempo de execução: ${Date.now() - startTime}ms`);
+
+module.exports = binarySearch;
