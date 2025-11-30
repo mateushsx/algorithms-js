@@ -1,16 +1,6 @@
-const exampleArray = [2, 8, 3, 1, 5, 6, 7, 9, 10, 11, 15, 13, 12, 14];
-
-const startTime = Date.now();
-
-/**
- * Finds the index of the smallest element in an array.
- * @param {number[]} array
- * @returns {number}
- * @throws {Error}
- */
 function findSmallestIndex(array) {
   if (array.length === 0) {
-    throw new Error("The array is empty");
+    throw new Error('The array is empty');
   }
 
   let smallestElement = array[0];
@@ -26,12 +16,11 @@ function findSmallestIndex(array) {
   return smallestIndex;
 }
 
-/**
- * Sort an array using the Selection Sort algorithm.
- * @param {number[]} array
- * @returns {number[]}
- */
 function selectionSort(array) {
+  if (!Array.isArray(array) || array.length === 0) {
+    throw new Error('The array is empty');
+  }
+
   const sortedArray = [];
   const unsortedArray = [...array];
 
@@ -44,6 +33,5 @@ function selectionSort(array) {
   return sortedArray;
 }
 
-console.log('Unsorted array:', exampleArray);
-console.log('Sorted array:', selectionSort(exampleArray));
-console.log(`Runtime: ${Date.now() - startTime}ms`);
+module.exports = selectionSort;
+module.exports.findSmallestIndex = findSmallestIndex;

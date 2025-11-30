@@ -1,6 +1,3 @@
-const list = [2, 8, 3, 1, 5, 6, 7, 9, 10, 11, 15, 13, 12, 14];
-const startTime = Date.now();
-
 function merge(leftIndex, middleIndex, rightIndex, array) {
   const leftSize = middleIndex - leftIndex + 1;
   const rightSize = rightIndex - middleIndex;
@@ -44,17 +41,22 @@ function merge(leftIndex, middleIndex, rightIndex, array) {
   }
 }
 
-function mergeSort(start, end, array) {
+function mergeSortRecursive(start, end, array) {
   if (start < end) {
     const middle = Math.floor((start + end) / 2);
 
-    mergeSort(start, middle, array);
-    mergeSort(middle + 1, end, array);
+    mergeSortRecursive(start, middle, array);
+    mergeSortRecursive(middle + 1, end, array);
     merge(start, middle, end, array);
   }
   return array;
 }
 
-console.log('Unsorted list:', list);
-console.log('Sorted list:', mergeSort(0, list.length - 1, list));
-console.log(`Tempo de execução: ${Date.now() - startTime}ms`);
+function mergeSort(array) {
+  if (!Array.isArray(array) || array.length === 0) {
+    return array;
+  }
+  return mergeSortRecursive(0, array.length - 1, [...array]);
+}
+
+module.exports = mergeSort;

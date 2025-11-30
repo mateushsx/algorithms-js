@@ -1,48 +1,31 @@
-const adjancyMatrix = [
-  [1, 2], // Vértice 00 possui arestas com : Vértice 01 e 02
-  [0, 2, 3], // Vértice 01 possui arestas com : Vértice 00 ,02 e 03
-  [0, 1, 4], // Vértice 02 possui arestas com : Vértice 00 ,01 e 04
-  [1, 4], // Vértice 03 possui arestas com : Vértice 01 e 04
-  [3, 4], // Vértice 04 possui arestas com : Vértice 04 e 03
-];
-
-const visited = [];
-
-for (let idx = 0; idx < adjancyMatrix.length; idx++) {
-  visited.push(false);
-}
-
-function recursiveDFS(adjancyMatrix, visited, vertex) {
-  const neighboors = adjancyMatrix[vertex];
+function recursiveDFS(adjacencyMatrix, visited, vertex, result = []) {
+  const neighbors = adjacencyMatrix[vertex];
 
   visited[vertex] = true;
+  result.push(vertex);
 
-  console.log(
-    `Visitando o vértice ${vertex} que tem conexão com: ${neighboors}`
-  );
-
-  for (let w of neighboors) {
+  for (let w of neighbors) {
     if (!visited[w]) {
-      recursiveDFS(adjancyMatrix, visited, w);
+      recursiveDFS(adjacencyMatrix, visited, w, result);
     }
   }
+
+  return result;
 }
 
-function iterativeDFS(adjancyMatrix, visited, vertex) {
-  const stack = [vertex];
+function iterativeDFS(adjacencyMatrix, visited, startVertex) {
+  const stack = [startVertex];
+  const result = [];
 
   while (stack.length > 0) {
     let v = stack.pop();
 
     if (!visited[v]) {
       visited[v] = true;
+      result.push(v);
 
-      console.log(
-        `Visitando o vértice ${v} que tem conexão com: ${adjancyMatrix[v]}`
-      );
-
-      for (let idx = 0; idx < adjancyMatrix[v].length; idx++) {
-        let w = adjancyMatrix[v][idx];
+      for (let idx = 0; idx < adjacencyMatrix[v].length; idx++) {
+        let w = adjacencyMatrix[v][idx];
 
         if (!visited[w]) {
           stack.push(w);
@@ -50,7 +33,26 @@ function iterativeDFS(adjancyMatrix, visited, vertex) {
       }
     }
   }
+
+  return result;
 }
 
-recursiveDFS(adjancyMatrix, visited, 0);
-iterativeDFS(adjancyMatrix, visited, 0);
+function depthFirstSearch(adjacencyMatrix, startVertex, useRecursive = true) {
+  if (!Array.isArray(adjacencyMatrix) || adjacencyMatrix.length === 0) {
+    return [];
+  }
+
+  if (startVertex < 0 || startVertex >= adjacencyMatrix.length) {
+    return [];
+  }
+
+  const visited = Array(adjacencyMatrix.length).fill(false);
+
+  if (useRecursive) {
+    return recursiveDFS(adjacencyMatrix, visited, startVertex);
+  } else {
+    return iterativeDFS(adjacencyMatrix, visited, startVertex);
+  }
+}
+
+module.exports = depthFirstSearch;
